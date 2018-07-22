@@ -1,5 +1,21 @@
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
+// Some click handler stuff...
+function triggerMouseEvent (node, eventType) {
+   const event = new MouseEvent(eventType, {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+  node.dispatchEvent(event);
+}
+
+function fakeClick(target) {
+	triggerMouseEvent (target, "mousedown");
+	triggerMouseEvent (target, "mouseup");
+	triggerMouseEvent (target, "click");
+}
+
 function fetchFile(url) {
 	return new Promise((resolve, reject) => {
 		fetch(url).then((response) => {
@@ -40,17 +56,26 @@ function setupDrumButton(url, id, keyCode) {
 		.then(decodeAudio)
 		.then((drumArrayBuffer) => {
 			// Button listener
-			if (typeof id !== "undefined") {
-				const button = document.getElementById(id);
-				button.addEventListener('mousedown', () => {
-					playAudio(drumArrayBuffer);
-				});
-			}
+			const button = document.getElementById(id);
+			button.addEventListener('mousedown', () => {
+				playAudio(drumArrayBuffer);
+			});
+
 			// Keyboard listener
 			if (typeof keyCode === "number") {
+
 				window.addEventListener('keydown', (e) => {
 					if (event.keyCode === keyCode) {
-						playAudio(drumArrayBuffer);
+						triggerMouseEvent (button, "mousedown");
+						button.classList.add('active');
+					}
+				});
+
+				window.addEventListener('keyup', (e) => {
+					if (event.keyCode === keyCode) {
+						triggerMouseEvent (button, "mouseup");
+						triggerMouseEvent (button, "click");
+						button.classList.remove('active');
 					}
 				});
 			}

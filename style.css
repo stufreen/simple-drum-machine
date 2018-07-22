@@ -1,0 +1,31 @@
+body {
+	background: #203040;
+	padding: 0;
+	margin: 0;
+}
+
+.drum-buttons {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.drum-button {
+	flex: 1;
+	background-color: #ACC;
+	border: 0;
+	margin: 1em;
+	border-radius: 1em;
+	transition: opacity 1s;
+}
+
+.drum-button:focus { 
+	outline: none;
+}
+
+.drum-button:active { 
+	opacity: 0.5;
+	transition: opacity 0s;
+}

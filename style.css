@@ -6,49 +6,49 @@ html {
 }
 
 body {
-	background-color: var(--dark-color);
-	padding: 0;
-	margin: 0;
+  background-color: var(--dark-color);
+  padding: 0;
+  margin: 0;
   height: 100%;
 }
 
 .drum-buttons {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	padding: 1em;
-	box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 .drum-button {
   color: var(--mid-color);
   font-size: 5vw;
-	flex: 1;
-	background-color: var(--light-color);;
-	border: 0;
-	margin: 0.2em;
-	border-radius: 0.2em;
-	transition: opacity 1s;
+  flex: 1;
+  background-color: var(--light-color);;
+  border: 0;
+  margin: 0.2em;
+  border-radius: 0.2em;
+  transition: opacity 1s;
 }
 
 .drum-button:focus { 
-	outline: none;
+  outline: none;
 }
 
 .drum-button:active, .drum-button.active { 
-	opacity: 0.5;
-	transition: opacity 0s;
+  opacity: 0.5;
+  transition: opacity 0s;
 }
 
 .github-link {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 8vw;
-	height: 8vw;
-	z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 8vw;
+  height: 8vw;
+  z-index: 100;
 }
 
 .github-link:hover .octo path{
-	fill: var(--mid-color);
+  fill: var(--mid-color);
 }

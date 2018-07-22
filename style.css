@@ -39,3 +39,16 @@ body {
 	opacity: 0.5;
 	transition: opacity 0s;
 }
+
+.github-link {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 8vw;
+	height: 8vw;
+	z-index: 100;
+}
+
+.github-link:hover .octo path{
+	fill: var(--mid-color);
+}
